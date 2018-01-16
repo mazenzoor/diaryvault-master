@@ -140,7 +140,7 @@ public class PostListFragment extends Fragment {
                     intent.putExtra(PostDetailActivity.EXTRA_NAME, holder.mTitle);
                     intent.putExtra("Description", holder.mDescription);
                     intent.putExtra("Image", holder.mImage.getPath());
-                    intent.putExtra("Rating", holder.mRating);
+                    intent.putExtra("Rating", holder.mRating + " Stars");
                     intent.putExtra("Date", holder.mDate);
                     context.startActivity(intent);
                 }

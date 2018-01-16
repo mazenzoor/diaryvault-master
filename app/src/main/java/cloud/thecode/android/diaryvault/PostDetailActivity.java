@@ -24,6 +24,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -34,11 +35,20 @@ import java.io.File;
 public class PostDetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_NAME = "post_name";
+    private TextView date, desc, rating;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+
+        date = (TextView) findViewById(R.id.date);
+        desc = (TextView) findViewById(R.id.description);
+        rating = (TextView) findViewById(R.id.rating);
+
+        date.setText(getIntent().getStringExtra("Date"));
+        desc.setText(getIntent().getStringExtra("Description"));
+        rating.setText(getIntent().getStringExtra("Rating"));
 
         Intent intent = getIntent();
         final String postTitle = intent.getStringExtra(EXTRA_NAME);
@@ -56,11 +66,11 @@ public class PostDetailActivity extends AppCompatActivity {
 
     private void loadBackdrop() {
          ImageView imageView = (ImageView) findViewById(R.id.backdrop);
-        imageView.setImageURI(Uri.parse(getIntent().getStringExtra("Image")));
-        imageView.invalidate();
+        imageView.setImageResource(R.drawable.background);
+        //imageView.invalidate();
         //Glide.with(this).loadFromMediaStore(Uri.parse(getIntent().getStringExtra("Image"))).centerCrop().into(imageView);
         //imageView.setImageURI(getIntent().getStringExtra("Image"));
-        Toast.makeText(this, Uri.parse(getIntent().getStringExtra("Image")).toString(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, Uri.parse(getIntent().getStringExtra("Image")).toString(), Toast.LENGTH_SHORT).show();
     }
 
     @Override

@@ -122,6 +122,9 @@ public class PostListFragment extends Fragment {
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
             holder.mTitle = mValues.get(position).getTitle();
+            holder.mDescription = mValues.get(position).getDescription();
+            holder.mDate = mValues.get(position).getDate();
+            holder.mRating = mValues.get(position).getRating().toString();
             holder.mId = mValues.get(position).getId() + "";
             holder.mTextView.setText(mValues.get(position).getTitle());
             holder.mImage = mValues.get(position).getImage();
